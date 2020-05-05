@@ -86,7 +86,7 @@ var app = new Vue({
 </script>
 <br>
 
-Fue creado por Evan You en 2014 mientras trabajaba en Google y está pensado para ser adoptado de forma incremental, por lo que puede ser rápidamente añadido a proyectos existentes para agilizar y refactorizar interfaces, pero también pude ser usado para crear productos completos en base a Vue. 
+Vue fue creado por Evan You en 2014 mientras trabajaba en Google y está pensado para ser adoptado de forma incremental, por lo que puede ser rápidamente añadido a proyectos existentes para agilizar y refactorizar interfaces, pero también pude ser usado para crear productos completos en base a Vue. 
 
 A diferencia de JQuery, Vue es un framework que permite obtener aplicaciones de alto rendimiento, con Angular comparten varias funcionalidades, pero con diferente implementación  y al igual que React usa un Dom Virtual con un enfoque orientado a componentes. Pero su sistema de plantillas es más simple y no require de JSX, que hace más fácil la integración de equipos dedicados (diseñadores y developers).
 
