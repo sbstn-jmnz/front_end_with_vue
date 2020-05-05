@@ -43,8 +43,8 @@ topnav_dropdowns:
       folderitems:
         - title: Web reactiva basada en componentes
           url: /web_reactiva_basada_en_componentes.html
-        - title: Product 1
-          url: /p1_landing_page.html
+        - title: Ciclo de vida eventos y estados de componentes
+          url: /ciclo_de_vida_eventos_y_estado_de_componentes.html
         - title: Product 2
           url: /p2_landing_page.html
     - title: VueJS Avanzado
