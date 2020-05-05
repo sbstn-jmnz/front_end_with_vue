@@ -2,8 +2,8 @@
 
 entries:
 - title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
+  product: Desarrollo Frontend con Vue.js
+  version: v0.1.0
   folders:
 
   - title: 
@@ -19,29 +19,25 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Overview
+  - title: Web reactiva basada en componentes
     output: web, pdf
     folderitems:
 
-    - title: Get started
-      url: /index.html
+    - title: Introducción a componentes web y Vue.js
+      url: /introduccion_a_componentes_web_y_vuejs.html
       output: web, pdf
       type: homepage
 
-    - title: Introduction
-      url: /mydoc_introduction.html
+    - title: Instalar Vue.js
+      url: /instalar_vuejs.html
       output: web, pdf
 
-    - title: Supported features
-      url: /mydoc_supported_features.html
+    - title: estructura básica de un componente Vue
+      url: /estructura_basica_de_un_componente_vue.html
       output: web, pdf
 
-    - title: About the theme author
-      url: /mydoc_about.html
-      output: web, pdf
-
-    - title: Support
-      url: /mydoc_support.html
+    - title: Uso de templates con Mustache
+      url: /uso_de_templates_con_mustache.html
       output: web, pdf
 
   - title: Release Notes

@@ -31,10 +31,18 @@ topnav_dropdowns:
           url: /p1_landing_page.html
         - title: Product 2
           url: /p2_landing_page.html
-    - title: VueJS
+    - title: ES6+
       folderitems:
         - title: Jekyll Documentation Theme
           url: /mydoc_introduction.html
+        - title: Product 1
+          url: /p1_landing_page.html
+        - title: Product 2
+          url: /p2_landing_page.html
+    - title: VueJS
+      folderitems:
+        - title: Web reactiva basada en componentes
+          url: /web_reactiva_basada_en_componentes.html
         - title: Product 1
           url: /p1_landing_page.html
         - title: Product 2
