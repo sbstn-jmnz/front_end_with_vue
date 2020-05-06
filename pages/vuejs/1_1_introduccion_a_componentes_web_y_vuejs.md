@@ -33,7 +33,7 @@ Esto de trabajar con flujos de datos permite a la programación funcional pasar 
 
 La reactividad agrega un eje del tiempo a la lógica de la programación web más tradicional. Las aplicaciones web anteriormente de centraban más en cambios discretos, pero ahora cualquier evento pude ser capturado, procesado y afectar los componentes de la interfaz. 
 
-La programación reactiva combina varios patrones de diseño y hay implementaciones casi todos los lenguajes de programación más populares.  
+La programación reactiva combina varios patrones de diseño y hay implementaciones en casi todos los lenguajes de programación más populares.  
 
 ## Ejemplos de librerías o frameworks que lo utilizan (React, Angular, Vue)
 

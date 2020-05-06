@@ -32,7 +32,7 @@ entries:
       url: /instalar_vuejs.html
       output: web, pdf
 
-    - title: estructura básica de un componente Vue
+    - title: Estructura básica de un componente Vue
       url: /estructura_basica_de_un_componente_vue.html
       output: web, pdf
 
