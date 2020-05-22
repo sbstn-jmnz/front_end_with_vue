@@ -5,7 +5,7 @@ folder: vuejs
 ---
 {% include note.html content='referencias: https://www.freecodecamp.org/news/how-to-create-a-vue-js-app-using-single-file-components-without-the-cli-7e73e5b8244f/' %}
 
-## HTML, JavaScript y CSS en un mismo archivo
+## Single File Components - HTML, JS y CSS en un mismo archivo
 
   Los Single File Components son útiles para proyectos grandes donde la opción de definir componentes globales puede complicar la existencia a grupos de desarrolladores por las siguientes razones:
 
@@ -59,10 +59,11 @@ Con las dependencias instaladas es momento de configurar Webpack y Babel:
 /*
   ./webpack.config.js
   Primero se requieren los plugins, los módulos normalmente no se requieren
-  antes
+  antes de usarlos, también requeriremos a webpack para configurar el hot module replacement para no perder el estado de la aplicación con cada actualización en los archivos
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const webpack = require('webpack');
 
 module.exports = { // La configuración completa se exporta como un objeto
   entry: './src/main.js', // El archivo js principal
@@ -73,11 +74,16 @@ module.exports = { // La configuración completa se exporta como un objeto
       { test: /\.css$/, use: ['vue-style-loader', 'css-loader']},
     ]
   },
+  devServer: {
+    open: true,
+    hot: true,
+  }
   plugins: [ // Finalmente se instancian los plugins
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
     new VueLoaderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
 ```
@@ -155,8 +161,124 @@ El proyecto en el navegador con la consola de inspección de Vue se verá de la 
 
 [sfc_1]: /images/sfc_1.png "Hello SFC"  
 
-
+Ahora prueba a modificar el valor de la variable message, guarda y el navegador debería reflejar el cambio de forma automática gracias el servidor de desarrollo.
 
 ## Montar componente en elemento HTML
+
+Ahora agregaremos otro componente al primero. Crearemos el archivo Other.vue dentro de la carpeta /src. El componente tendrá el siguiente contenido:
+
+```js
+<template>
+  <div class="other">
+    {{ message }}
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: 'Soy otro componente',
+    };
+  },
+};
+</script>
+
+<style>
+.other {
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  color: blue;
+}
+</style>
+```
+
+Luego podemos componer ambos en el archivo App.vue de la siguiente forma:
+
+```js
+<template>
+  <div id="app">
+    {{ message }}
+  <other></other>
+  <other></other>
+  <other></other>
+  </div>
+</template>
+
+<script>
+import Other from './Other.vue'
+export default {
+  data() {
+    return {
+      message: 'SFC from zero',
+    };
+  },
+  components: {
+    Other
+  }
+};
+</script>
+...
+```
+
+Esto creara el componente principal junto con tres instancias del segundo componente. Deberíamos ver algo similar a esto:
+
+![alt text][sfc_2]
+
+[sfc_2]: /images/sfc_2.png "Nested Components"  
+
 ## Conociendo el objeto data. Diferencias entre One/Two way binding.
+
+El objeto data de los componentes no es directamente un objeto como en las instancias de Vue regulares que escribíamos globalmente, en los componentes el objeto data es una función que retorna un objeto, así cada instancia del componente puede mantener una copia de su estado y cada cambio en estos objetos generará un nuevo render de la vista. Esto lo podemos comprobar con ayuda de la herramienta dev-tools como en la siguiente imágen:
+
+![alt text][one_way_binding]
+
+[one_way_binding]: /images/one_way_binding_0.png "Nested Components"
+
+Es importante notar que debemos declarar todas las propiedades que requiera el componente antes de instanciarlo, aún cuando estas propiedades sean asignadas durante la ejecución de la aplicación. Como en ejemplo de la guía de vue:
+
+```js
+  data: {
+    newTodoText: '',
+    visitCount: 0,
+    hideCompletedTodos: false,
+    todos: [],
+    error: null
+  }
+```
+Para ver un poco de two way binding en los componentes que hemos trabajado modifiquemos el archivo App.vue con lo siguiente:
+
+```js
+<template>
+  <div class="app">
+    {{ message ? message : 'Hello SFC' }}
+    <input type='text' v-model='message'>
+  <other></other>
+  <other></other>
+  <other></other>
+  </div>
+</template>
+
+<script>
+import Other from './Other.vue'
+export default {
+  data() {
+    return {
+      message: '',
+    };
+  },
+  components: {
+    Other
+  }
+};
+</script>
+...
+```
+Si ahora escribimos en el input estaremos modificando el estado del componente desde la vista. Compruébalo como en la siguiente imágen:
+
+![alt text][two_way_binding]
+
+[two_way_binding]: /images/two_way_binding_0.png "Nested Components"
+
+
 ## Formularios y directiva model
