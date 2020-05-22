@@ -45,8 +45,10 @@ topnav_dropdowns:
           url: /web_reactiva_basada_en_componentes.html
         - title: Ciclo de vida eventos y estados de componentes
           url: /ciclo_de_vida_eventos_y_estado_de_componentes.html
-        - title: Product 2
-          url: /p2_landing_page.html
+        - title: Vue Router
+          url: /vue_router.html
+        - title: Vue y Vuex
+          url: /vue_y_vuex.html
     - title: VueJS Avanzado
       folderitems:
         - title: Jekyll Documentation Theme

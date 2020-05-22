@@ -72,21 +72,59 @@ Para instalar Vue CLI ejecutar el siguiente comando
 
 `npm install -g @vue/cli`
 
+
 ## Setup de una aplicación con Vue CLI y sus características agregadas
 
-Veamos ahora algunas de las opciones que nos entrega Vue CLI
+Partir un proyecto solo con npm o yarn nos dejaría a los desarrolladores con la responsabilidad de 
+decidir cómo organizar el proyecto, establecer una guía de estilo para las convenciones del código,
+crear y optimizar los archivos para producción (build) y configurar las pruebas unitarias y E2E.
+
+Todo esto lo permite resolver Vue CLI entregando proyectos basados en convenciones (sensible defaults) que también se pueden configurar en base a cada proyecto.  
+
+Para crear una aplicación con Vue CLI con todas las configuraciones cargadas por defecto debemos ejecutar `vue create some_cool_app -d`. La opción `-d` es para aceptar las configuraciones default.
+
+Si no agregamos la opción `-d` la herramienta nos pedirá seleccionar las opciones que queremos para el proyecto. 
+ 
+Veamos algunas de las opciones, a través de plugins, que nos entrega Vue CLI para trabajar en los proyectos.
 ### Babel
+Esto nos permite trabajar con las funcionalidades ES6 y compilar el código a ES5 
 ### PWA
+Esta opción habilitará el trabajo con service workers y el enfoque Off Line First
 ### Router
+Creará un proyecto listo para trabajar con Vue Router
 ### Vuex
+Agregará Vuex para el manejo de estado
 ### Preprocesadores CSS
+Sass o Less
 ### Linters
+ESLint, TSLint
 ### Testing
-## Herramientas de desarrollo 
+Configura los ambientes necesarios para pruebas E2E y pruebas unitarias.
+
+### Ejemplo vue-cli
+Para una prueba simple, seleccionando la opción por defecto de babel y eslint, ingresemos los siguientes comandos.
+
+```bash
+vue create hello-vue
+cd hello-vue
+npm serve
+```
+
+## Herramientas de desarrollo
 ### Webpack
+
+Webpack es una herramienta para el desarrollo frontend que a grandes rasgos permite transformar
+códigos organizados y optmizados para el desarrollo y mantención a códigos optimizados para el navegador.
+
+Permite estructurar y modularizar los códigos en ambiente de desarrollo y aplicar varias transformaciones para finalizar con códigos minificados y concatenados listos para ser interpretados de forma eficiente por los navegadores.
+
+Es extensible en el sentido que podemos configurar las transformaciones necesarias, por ejemplo en el caso de vue, se pude configurar para que soporte los SFC que tienen extensión .vue, los cuales finalmente se convertirán en archivos css y js. Otras transformaciones nos permitirán trabajar con Babel, Saas y muchos otros.
+
+No es una herramienta sencilla, ya que el orden y especificación de estas trasformaciones (loaders en la jerga webpack) importa. En esto vue-cli nos ayudará configurando webpack con las funcionalidades seleccionadas. 
+
 ### Vue.js Devtools
 
-Ahora instalaremos una extensión para el navegador. Ingresar a la tienda de Extensiones de Chrome y descarga Vue.js Devtools (https://goo.gl/Sc3YU1).
+Ahora instalaremos una extensión para el navegador. Ingresar a la tienda de Extensiones de Chrome y descarga [Vue.js Devtools](https://goo.gl/Sc3YU1).
 
 Con esto ahora tendremos acceso a un panel Vue dentro de la consola de inspección de Chrome. Veamos un ejemplo:
 
